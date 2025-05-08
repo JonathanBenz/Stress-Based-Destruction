@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float jumpHeight = 1.5f;
 
     [Header("Mouse Look")]
-    [SerializeField] private float mouseSensitivity = 100f;
+    [SerializeField] private float mouseSensitivity = 50;
 
     Transform cameraTransform;
     private Animator hammerAnimator;
@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        
         // Only allow mouse input after initialization
         if (hasInitialized) HandleMouseLook();
         else if (!hasInitialized && Input.GetMouseButtonDown(0)) hasInitialized = true;
@@ -43,6 +44,7 @@ public class PlayerController : MonoBehaviour
         HandleJump();
         HandleMouseClick();
         HandleMovement();
+        HandleExit();
     }
 
     void HandleMouseLook()
@@ -82,5 +84,17 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButton(0)) hammerAnimator.SetBool("bSwingHammer", true);
         else hammerAnimator.SetBool("bSwingHammer", false);
+    }
+    
+    void HandleExit()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit(); // Quit if using executable build
+
+            // Allow user to exit window if WebGL build
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
     }
 }
