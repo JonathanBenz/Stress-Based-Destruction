@@ -12,3 +12,14 @@ My attempt to emulate a stress-based destruction system as seen in games such as
     b. If the applied force plus the node strength exceeds the link weight, then have that node break off, and continue propagating stress down the layer.  
     c. Keep going and comparing layer by layer until you reach the ground layer, then stop.  
 6. When a node breaks off, turn it into debris, which can then also apply stress forces to unbroken nodes during a collision.
+
+<p align="center">
+    <img src="videos_images/destructionExample2.gif" alt="Stress-Based Destruction Demo View 1" style="width:100%;margin-right:5%;" />
+    <img src="videos_images/destructionExample1.gif" alt="Stress-Based Destruction Demo View 2" style="width:100%;" />
+    <p align="center"><em>Figure 1: A sledgehammer hit causes stress propagation and debris generation.</em></p>
+</p>
+
+<p align="center">
+  <img src="videos_images/EditorVisualizationDemo.gif" alt="Pre-Baked Node and Links" />
+  <p align="center"><em>Figure 2: Pre-Baked Node and Link value generation.</em></p>
+</p>
